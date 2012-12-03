@@ -10,7 +10,8 @@ Gem::Specification.new do |gem|
   gem.email         = ["saratovsource@gmail.com"]
   gem.description   = %q{Extends the cocoon, adding the possibility of limiting the number of records added.}
   gem.summary       = %q{Extends the cocoon, adding the possibility of limiting the number of records added.}
-  gem.homepage      = ""
+  #gem.homepage      = ""
+  gem.rubyforge_project = "cocoon_limiter"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

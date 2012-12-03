@@ -5,7 +5,7 @@
       document = window.document,
       defaults = {
         count: 5,
-        cocoon_counter_name: "coccon_counter",
+        cocoon_counter_name: "cocoon_counter",
         counter: "[data-counter]",
         increment_link: ".add_fields"
       };

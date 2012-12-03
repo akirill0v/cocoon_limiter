@@ -58,6 +58,10 @@ Just bind 'cocoon:changed' event.
   })
 ```
 
+## More examples and demos
+
+[Here](http://cocoon-limiter.herokuapp.com "Cocoon Limiter demo") you can learn more. Soon.
+
 ## Contributing
 
 1. Fork it

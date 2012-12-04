@@ -1,6 +1,6 @@
 # CocoonLimiter
 
-Makes it possible to limit the amount of added by cocoon records.
+Makes it possible to limit the amount of items added by cocoon.
 
 ## Installation
 

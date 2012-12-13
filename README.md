@@ -50,12 +50,14 @@ after insert or remove items).
 You can decide what the tag will be updated when you change the number
 of items in the list.
 
-Just bind 'cocoon:changed' event.
+Just add your self '''update_counter''' method.
 
 ``` javascript
-  $('.choose_file').bind('cocoon:changed', function(e, left_count){
-    $('#any_other_widget').text(left_count);
-  })
+  $('.choose_file').cocoon_limiter({
+    update_counter: function(e, count, cocoon){
+      $('#any_other_widget').text(count);
+    }
+  });
 ```
 
 ## More examples and demos

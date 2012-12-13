@@ -7,7 +7,8 @@
         count: 5,
         cocoon_counter_name: "cocoon_counter",
         counter: "[data-counter]",
-        increment_link: ".add_fields"
+        increment_link: ".add_fields",
+        update_counter: null
       };
 
   // The actual plugin constructor
@@ -54,20 +55,22 @@
         var parent = this.reference;
         parent.items.push(task);
         parent.set_visibility();
-        $( this ).trigger('cocoon:changed', [parent.items.length]);
+        $( this ).trigger('cocoon:changed', [parent.items.length, parent]);
       },
       decrement_event: function(e, task){
         var parent = this.reference;
         parent.items.splice($.inArray(task, parent.items), 1);
-        $( this ).trigger('cocoon:changed', [parent.items.length]);
+        $( this ).trigger('cocoon:changed', [parent.items.length, parent]);
         parent.set_visibility();
       }
     };
 
-    this.update_counter = function(e, count){
-      var left_count = (this.reference.options.count - count)
-      $( this.reference.counter_widget ).text(left_count);
-    };
+    if (!this.options.update_counter) {
+      this.update_counter = function(e, count, reference){
+        var left_count = (this.reference.options.count - count)
+        $( this.reference.counter_widget ).text(left_count);
+      };
+    } else { this.update_counter = this.options.update_counter }
 
     this.bind_events = function(){
       $( this.element ).bind('cocoon:after-insert', this.cocoon_events.increment_event)
@@ -100,7 +103,7 @@
     this.calc_existing_elements();
 
     // First 
-    $( this.element ).trigger('cocoon:changed', [this.items.length]);
+    $( this.element ).trigger('cocoon:changed', [this.items.length, this]);
   };
 
   // A really lightweight plugin wrapper around the constructor, 
